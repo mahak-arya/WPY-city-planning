@@ -18,8 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('residents','ResidentController@index');
-Route::get('residentsByCity/{city}','ResidentController@getResidentsByCity');
-Route::get('carsByStreet/{street_name}','ResidentController@getCarsByStreetName');
-Route::get('getOwnerByCar/{license_number}','ResidentController@getOwnerByCar');
-Route::get('getAddressByName/{name}','ResidentController@getAddressByName');
+Route::get('residents-by-city/{city}/{auth}','ResidentController@getResidentsByCity');
+Route::get('cars-by-street/{street-name}/{auth}','ResidentController@getCarsByStreetName');
+Route::get('owner-by-car/{license-number}/{auth}','ResidentController@getOwnerByCar');
+Route::get('address-by-name/{name}/{auth}','ResidentController@getAddressByName');
